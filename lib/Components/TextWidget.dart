@@ -6,10 +6,10 @@ class MyPageView extends StatefulWidget {
 }
 
 class _MyPageViewState extends State<MyPageView> {
-  // Define the number of pages you want in the PageView
+  // Defini le nombre de page que tu veux dans le PgeView
   final int pageCount = 5;
 
-  // Track the currently selected page index
+  // Recupere l'index de paage actuelle
   int currentPageIndex = 0;
 
   // Controller for the PageView

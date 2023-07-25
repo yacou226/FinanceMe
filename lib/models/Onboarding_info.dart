@@ -4,4 +4,4 @@ class OnboardingInfo{
   final description;
 
   OnboardingInfo(this.imageAsset,this.title,this.description);
-}
+}//Model OnBoardingPage

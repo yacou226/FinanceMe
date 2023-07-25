@@ -25,38 +25,78 @@ class _OnboardingPageState extends State<OnboardingPage> {
           children: [
             PageView(
               controller: controller,
-              onPageChanged: (index){
+              onPageChanged: (index) {
                 setState(() {
                   onLastPage = (index == 2);
                 });
-              } ,
+              },
               children: const [PageOne(), PageTwo(), PageTree()],
             ),
-           
             Container(
               alignment: const Alignment(0, 0.85),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  GestureDetector(
-                      onTap: () {
+                  //Skip POur passer directer au dernier slide
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.purple)),
+                      onPressed: () {
                         controller.jumpToPage(2);
                       },
-                      child: const Text('skip')),
+                      child: const Text(
+                        "Skip",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      )),
+
                   SmoothPageIndicator(
                     controller: controller,
                     count: 3,
                   ),
-                  onLastPage ?
-                  GestureDetector(
-                    onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginPage()));
-                    }, child:const Text('done'))
-                    : 
-                    GestureDetector(
-                    onTap:(){
-                      controller.nextPage(duration: const Duration(microseconds: 200), curve: Curves.easeIn);
-                    }, child:const Text('Next'))
+                  onLastPage
+                      ?
+
+                      //Button Done pour passer a la page de connexion
+                      ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.purple)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()));
+                            controller.nextPage(
+                                duration: const Duration(microseconds: 300),
+                                curve: Curves.easeIn);
+                          },
+                          child: const Text(
+                            "Done",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      :
+
+                      //Button Next pour passer au slide suivant
+                      ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.purple)),
+                          onPressed: () {
+                            controller.nextPage(
+                                duration: const Duration(microseconds: 300),
+                                curve: Curves.easeIn);
+                          },
+                          child: const Text(
+                            "Next",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ))
                 ],
               ),
             ),

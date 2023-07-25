@@ -8,6 +8,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 228, 237, 234),
+      appBar: AppBar(),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

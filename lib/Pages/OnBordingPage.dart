@@ -67,7 +67,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginPage()));
+                                    builder: (context) => LoginPage()));
                             controller.nextPage(
                                 duration: const Duration(microseconds: 300),
                                 curve: Curves.easeIn);

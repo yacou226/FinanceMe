@@ -1,38 +1,31 @@
 import 'package:flutter/material.dart';
 
 Widget createTextFieldWithIcon(
-    String hintText,
-    String labelText,
-    IconData iconData,
-    TextEditingController controller,
+  String hintText,
+  String labelText,
+  IconData iconData,
+  TextEditingController controller,
 ) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+    padding: const EdgeInsets.all(15.0),
     child: Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+        color: Colors.white,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Row(
-          children: [
-            Icon(iconData),
-            const SizedBox(width: 10.0),
-            Expanded(
-              child: TextFormField(
-              
-                controller: controller,
-                decoration: InputDecoration(
-                  labelText: labelText,
-                  hintText: hintText,
-                  border: InputBorder.none,
-
-                  
-                ),
-              ),
-            ),
-          ],
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: labelText,
+          prefixIcon: Icon(iconData),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          ),
+          contentPadding: EdgeInsets.zero,
+          hintText: hintText,
+          floatingLabelBehavior: FloatingLabelBehavior.never, // Added this line
         ),
       ),
     ),

@@ -2,6 +2,8 @@ import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Pages/Auth/Register.dart';
 import 'package:flutter/material.dart';
+
+import 'Buttons.dart';
 // Import de la bibliothèque d'icônes
 
 class LoginPage extends StatelessWidget {
@@ -61,27 +63,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => RegisterPage()));
                 },
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      color: Colors.purple,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      'CONNEXION',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    )),
-                  ),
-                ),
+                child: buttons("CONNEXION")
               )
             ],
           ),

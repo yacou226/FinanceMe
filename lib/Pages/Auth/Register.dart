@@ -1,5 +1,6 @@
 import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
+import 'package:finance_me/Pages/Auth/Buttons.dart';
 import 'package:finance_me/Pages/Auth/LoginPage.dart';
 import 'package:flutter/material.dart';
 
@@ -42,10 +43,13 @@ class RegisterPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
-                  createTextFieldWithIcon('Please enter your full name', 'Fullname',
-                      Icons.padding_outlined, _nameRegisterController),
-                  createTextFieldWithIcon('Please enter your E-mail',
-                      'E-mail', Icons.email, _emailRegisterController),
+                  createTextFieldWithIcon(
+                      'Please enter your full name',
+                      'Fullname',
+                      Icons.padding_outlined,
+                      _nameRegisterController),
+                  createTextFieldWithIcon('Please enter your E-mail', 'E-mail',
+                      Icons.email, _emailRegisterController),
                   createTextFieldWithIcon('Please enter password', ' Password',
                       Icons.key_rounded, _passwordRegisterController),
                   createTextFieldWithIcon('Password', 'Confirm password',
@@ -53,31 +57,14 @@ class RegisterPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(14.0),
                     child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()));
-                      },
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            color: Colors.purple,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0))),
-                        width: MediaQuery.of(context).size.width,
-                        height: 50.0,
-                        child: const Center(
-                            child: Text(
-                          'IINSCRIPTION',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            color: Colors.white,
-                          ),
-                        )),
-                      ),
-                    ),
-                  )
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()));
+                        },
+                        child: buttons("INSCRIPTION")),
+                  ),
                 ],
               ),
             ),

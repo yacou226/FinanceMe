@@ -2,6 +2,7 @@ import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Pages/Auth/Buttons.dart';
 import 'package:finance_me/Pages/Auth/LoginPage.dart';
+import 'package:finance_me/Pages/StepForm/StepFormPage.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -61,7 +62,7 @@ class RegisterPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginPage()));
+                                  builder: (context) => const  StepFormPage()));
                         },
                         child: buttons("Incription")),
                   ),

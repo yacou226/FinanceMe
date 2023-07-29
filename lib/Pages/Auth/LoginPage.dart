@@ -58,12 +58,12 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => RegisterPage()));
                 },
-                child: buttons("CONNEXION")
+                child: buttons("Connection")
               )
             ],
           ),

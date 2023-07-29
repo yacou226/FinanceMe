@@ -56,14 +56,14 @@ class RegisterPage extends StatelessWidget {
                       Icons.key_rounded, _confirmPasswordRegisterController),
                   Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: InkWell(
+                    child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => LoginPage()));
                         },
-                        child: buttons("INSCRIPTION")),
+                        child: buttons("Incription")),
                   ),
                 ],
               ),

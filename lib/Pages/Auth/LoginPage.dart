@@ -1,6 +1,7 @@
 import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Pages/Auth/Register.dart';
+import 'package:finance_me/Pages/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 import '../../Components/Buttons.dart';
@@ -78,7 +79,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
+                              builder: (context) => Dashboard()));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

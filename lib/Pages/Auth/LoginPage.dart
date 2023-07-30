@@ -3,11 +3,24 @@ import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Pages/Auth/Register.dart';
 import 'package:flutter/material.dart';
 
-import 'Buttons.dart';
-// Import de la bibliothèque d'icônes
+import '../../Components/Buttons.dart';
+
+bool verificationConnexion(
+    TextEditingController mail, TextEditingController pwd) {
+  var response = false;
+  if (mail.text == "admin" && pwd.text == "admin") {
+    response = true;
+  } else {
+    response = false;
+  }
+
+  return response;
+}
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
+
+  String text = 'Welcome back, you are been missed';
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -18,7 +31,6 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(),
         body: SingleChildScrollView(
-          // Wrap the content with SingleChildScrollView
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -31,7 +43,7 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
                 ),
               ),
-              const Text('Welcome back, you are been missed'),
+              Text(text),
               const SizedBox(
                 height: 15.0,
               ),
@@ -59,12 +71,25 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
-                },
-                child: buttons("CONNEXION")
-              )
+                  onTap: () {
+                    if (verificationConnexion(
+                            emailController, passwordController) ==
+                        true) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage()));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content:
+                              Text("Erreur dans le mot de passe ou le mail"),
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    }
+                  },
+                  child: buttons("CONNEXION"))
             ],
           ),
         ));

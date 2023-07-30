@@ -35,7 +35,7 @@ Widget card() {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
                       '$fonds FCFA',
                       style: const TextStyle(

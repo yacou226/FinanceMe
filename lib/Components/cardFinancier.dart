@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 Widget cardFinancier(String img, String intituleProjet, int montant) {
@@ -21,7 +19,7 @@ Widget cardFinancier(String img, String intituleProjet, int montant) {
         title: Text(
           intituleProjet,
           style: const TextStyle(
-            color: Colors.purple,
+            color: Color.fromARGB(255, 73, 10, 115),
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),

@@ -9,7 +9,7 @@ Widget card() {
       borderRadius: BorderRadius.all(Radius.circular(8)),
       gradient: LinearGradient(
         colors: [
-          Color.fromRGBO(54, 18, 51, 1),
+          Color.fromARGB(255, 73, 10, 115),
           Colors.purple,
         ],
         begin: Alignment.topLeft,

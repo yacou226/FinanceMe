@@ -7,7 +7,7 @@ Widget buttons(String texte) {
       height: 50,
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          color: Color.fromRGBO(54, 18, 51, 1)),
+          color: Color.fromARGB(255, 73, 10, 115)),
       child: Center(
           child: Text(
         texte,

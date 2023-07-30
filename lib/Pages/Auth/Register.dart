@@ -59,10 +59,17 @@ class RegisterPage extends StatelessWidget {
                     padding: const EdgeInsets.all(14.0),
                     child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const  StepFormPage()));
+                          showDialog(context: context, builder: (context) {
+                              return const  Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return  const StepFormPage();
+                          })));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const  StepFormPage()));
                         },
                         child: buttons("Incription")),
                   ),

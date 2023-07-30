@@ -38,7 +38,7 @@ class Dashboard extends StatelessWidget {
               const Divider(
                 height: 40,
                 thickness: 6,
-                color: Color.fromRGBO(54, 18, 51, 1),
+                color: Color.fromARGB(255, 73, 10, 115),
                 indent: 20,
                 endIndent: 250,
               ),

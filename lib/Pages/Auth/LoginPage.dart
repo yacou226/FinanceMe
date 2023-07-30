@@ -1,6 +1,7 @@
 import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Pages/Auth/Register.dart';
+import 'package:finance_me/Pages/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 import '../../Components/Buttons.dart';
@@ -70,13 +71,26 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
-                },
-                child: buttons("CONNEXION")
-              )
+              InkWell(
+                  onTap: () {
+                    if (verificationConnexion(
+                            emailController, passwordController) ==
+                        true) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Dashboard()));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content:
+                              Text("Erreur dans le mot de passe ou le mail"),
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    }
+                  },
+                  child: buttons("CONNEXION"))
             ],
           ),
         ));

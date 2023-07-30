@@ -1,5 +1,6 @@
 
 import 'package:finance_me/Pages/OnBordingPage.dart';
+import 'package:finance_me/Pages/StepForm/Test.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,6 +20,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const OnboardingPage());
+        home:  const OnboardingPage());
   }
 }

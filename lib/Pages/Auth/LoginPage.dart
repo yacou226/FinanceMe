@@ -1,6 +1,5 @@
 import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
-import 'package:finance_me/Pages/Auth/Register.dart';
 import 'package:finance_me/Pages/Dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +63,7 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           'Mot de passe oublié !',
                           style: TextStyle(
-                              color: Colors.redAccent,
+                              color: Color.fromRGBO(255, 0, 0, 1),
                               fontWeight: FontWeight.bold,
                               fontSize: 14.0),
                         )),
@@ -82,10 +81,11 @@ class LoginPage extends StatelessWidget {
                               builder: (context) => Dashboard()));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                     const   SnackBar(
                           content:
                               Text("Erreur dans le mot de passe ou le mail"),
-                          duration: Duration(seconds: 2),
+                          duration: Duration(seconds: 3),
+                          showCloseIcon: true
                         ),
                       );
                     }

@@ -1,4 +1,6 @@
+import 'package:finance_me/Pages/modification_Pofil/Profil.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -18,11 +20,25 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const CircleAvatar(),
-          onPressed: () {},
+          icon:  CircleAvatar(
+             child: ClipOval(
+              child: Image.asset(
+                'assets/logo.jpg',
+                fit: BoxFit.cover,
+              ),
+              
+            ),
+          ),
+          onPressed: () {
+             Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyProfile()));
+          },
           iconSize: 40,
         ),
       ],
     );
+    
   }
 }

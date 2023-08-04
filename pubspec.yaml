@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.1.0
   passwordfield: ^0.2.0
+  image_picker: ^1.0.1
+  editable_image: ^2.0.0
+ 
 
 dev_dependencies:
   flutter_test:

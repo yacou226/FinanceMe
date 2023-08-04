@@ -25,7 +25,7 @@ Widget createTextFieldWithIcon(
           ),
           contentPadding: EdgeInsets.zero,
           hintText: hintText,
-          floatingLabelBehavior: FloatingLabelBehavior.never, // Added this line
+          floatingLabelBehavior: FloatingLabelBehavior.never, 
         ),
       ),
     ),

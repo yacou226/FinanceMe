@@ -6,6 +6,8 @@ import 'package:finance_me/Components/Card.dart';
 import 'package:finance_me/Components/cardFinancier.dart';
 import 'package:flutter/material.dart';
 
+import '../Components/drawer.dart';
+
 class Dashboard extends StatelessWidget {
   final String user = 'Japhet';
   final String projet = 'Vente de volaille';
@@ -15,6 +17,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
+      drawer: buildDrawer(context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),

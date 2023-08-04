@@ -1,3 +1,4 @@
+import 'package:finance_me/Pages/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,7 +18,12 @@ class MyBottomAppBar extends StatelessWidget {
         children: [
           IconButton(
             icon: Icon(Icons.home, color: color),
-            onPressed: () {},
+            onPressed: () {
+               Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Dashboard()));
+            },
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),

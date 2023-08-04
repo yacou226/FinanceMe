@@ -6,7 +6,14 @@ import 'package:bottom_picker/bottom_picker.dart';
 import 'package:intl/intl.dart';
 
 class StepOnePage extends StatefulWidget {
-  const StepOnePage({super.key});
+  final TextEditingController testController;
+
+   const StepOnePage({
+    super.key,
+    required this.testController,
+
+    
+    });
 
   @override
   State<StepOnePage> createState() => _StepOnePageState();
@@ -50,6 +57,19 @@ class _StepOnePageState extends State<StepOnePage>  with SingleTickerProviderSta
                 'prénom', 'Entrez votre prénom', Icons.account_circle, firstname),
             createTextFieldWithIcon(
                 'Adress', 'Entrez votre adress', Icons.add_location_alt, adress),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: TextField(
+                    controller: lastname,
+                    decoration: const InputDecoration(
+                      hintText: 'Test1',
+                      border:  OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          ),
+                    ),
+                  ),
+                ),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: TextButton(
@@ -88,7 +108,7 @@ class _StepOnePageState extends State<StepOnePage>  with SingleTickerProviderSta
                             genre = true;
                           }),
                       child: Text('Homme')),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Radio(

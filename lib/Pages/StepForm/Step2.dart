@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:text_area/text_area.dart';
 
 class StepTwoPage extends StatefulWidget {
-  const StepTwoPage({super.key});
+    TextEditingController testController2;
+      StepTwoPage({super.key, required this.testController2});
 
   @override
   State<StepTwoPage> createState() => _StepTwoPageState();
@@ -55,6 +56,7 @@ class _StepTwoPageState extends State<StepTwoPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
       child: Container(
         child: Column(
@@ -91,6 +93,17 @@ class _StepTwoPageState extends State<StepTwoPage> {
               padding: EdgeInsets.only(left:17.0),
               child: Text("Objectif du financement",textAlign: TextAlign.left,style: TextStyle(fontSize: 16.0),),
             ),
+
+            TextField(
+                    controller: compagnyName,
+                    decoration: const InputDecoration(
+                      hintText: 'Test1',
+                      border:  OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          ),
+                    ),
+                  ),
              Padding(
                padding: const EdgeInsets.all(15.0),
                child: TextArea(

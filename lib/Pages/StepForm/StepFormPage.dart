@@ -9,20 +9,18 @@ class StepFormPage extends StatefulWidget {
 
   @override
   State<StepFormPage> createState() => _StepFormPageState();
-
-
 }
-
-
 
 class _StepFormPageState extends State<StepFormPage> {
   bool onLastPage = false;
-  
-   int position = 0;
+  TextEditingController firstname = TextEditingController();
+  TextEditingController age = TextEditingController();
+  int position = 0;
   final PageController _controller = PageController();
+  
   Color currentColor = Colors.black;
 
-@override
+  @override
   void initState() {
     super.initState();
     // Show the AlertDialog when the widget is started
@@ -31,18 +29,29 @@ class _StepFormPageState extends State<StepFormPage> {
     });
   }
 
-
-    void _showAlertDialog() {
+  void _showAlertDialog() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Information', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500,color: Color.fromARGB(255, 44, 10, 108)),),
-          content: Text("Avant de remplir le formulaire, assurez-vous de lire attentivement toutes les instructions et de fournir toutes les informations requises. Si possible, demandez à quelqu'un d'autre de relire votre demande pour vous assurer qu'elle est claire et complète.\n N'oubliez pas que les critères d'admissibilité et les exigences peuvent varier selon le programme de financement, alors assurez-vous de bien les comprendre avant de soumettre votre demande. Bonne chance dans votre recherche de financement ! "),
+          title: const Text(
+            'Information',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontWeight: FontWeight.w500,
+                color: Color.fromARGB(255, 44, 10, 108)),
+          ),
+          content: const Text(
+              "Avant de remplir le formulaire, assurez-vous de lire attentivement toutes les instructions et de fournir toutes les informations requises. Si possible, demandez à quelqu'un d'autre de relire votre demande pour vous assurer qu'elle est claire et complète.\n N'oubliez pas que les critères d'admissibilité et les exigences peuvent varier selon le programme de financement, alors assurez-vous de bien les comprendre avant de soumettre votre demande. Bonne chance dans votre recherche de financement ! "),
           actions: <Widget>[
-            TextButton(onPressed: (){}, child: Text('Refuser',style: TextStyle(color: Colors.red),)),
             TextButton(
-              child: Text('Accepter'),
+                onPressed: () {},
+                child: const Text(
+                  'Refuser',
+                  style: TextStyle(color: Colors.red),
+                )),
+            TextButton(
+              child: const Text('Accepter'),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
@@ -55,9 +64,6 @@ class _StepFormPageState extends State<StepFormPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -92,21 +98,26 @@ class _StepFormPageState extends State<StepFormPage> {
                       Container(
                         width: 30.0,
                         height: 30.0,
-                        decoration:  BoxDecoration(
-                            color: position >= 0 ? Color.fromARGB(255, 73, 10, 115) : Colors.grey,
+                        decoration: BoxDecoration(
+                            color: position >= 0
+                                ? Color.fromARGB(255, 73, 10, 115)
+                                : Colors.grey,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(50.0))),
-                        child:  Center(
+                        child: Center(
                             child: Text(
                           '1',
                           style: TextStyle(
-                              color: position >= 0 ? Colors.white : Colors.black,
+                              color:
+                                  position >= 0 ? Colors.white : Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0),
                         )),
                       ),
                       Container(
-                        color: position >= 1 ? Color.fromARGB(255, 73, 10, 115) : Colors.grey,
+                        color: position >= 1
+                            ? Color.fromARGB(255, 73, 10, 115)
+                            : Colors.grey,
                         height: 5.0,
                         width: 50,
                       )
@@ -117,22 +128,28 @@ class _StepFormPageState extends State<StepFormPage> {
                       Container(
                         width: 30.0,
                         height: 30.0,
-                        decoration:  BoxDecoration(
-                            color:position >= 1 ? Color.fromARGB(255, 73, 10, 115) : Colors.grey,
+                        decoration: BoxDecoration(
+                            color: position >= 1
+                                ? Color.fromARGB(255, 73, 10, 115)
+                                : Colors.grey,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(50.0))),
-                        child:  Center(
+                        child: Center(
                           child: Text(
                             '2',
                             style: TextStyle(
                               fontSize: 18.0,
-                              color: position >= 1 ? Color.fromARGB(255, 248, 248, 248) : Colors.black,
+                              color: position >= 1
+                                  ? Color.fromARGB(255, 248, 248, 248)
+                                  : Colors.black,
                             ),
                           ),
                         ),
                       ),
                       Container(
-                        color:position >= 2 ? Color.fromARGB(255, 73, 10, 115) : Colors.grey,
+                        color: position >= 2
+                            ? Color.fromARGB(255, 73, 10, 115)
+                            : Colors.grey,
                         height: 5.0,
                         width: 50,
                       )
@@ -143,22 +160,27 @@ class _StepFormPageState extends State<StepFormPage> {
                       Container(
                         width: 30.0,
                         height: 30.0,
-                        decoration:  BoxDecoration(
-                            color:  position >= 2 ? Color.fromARGB(255, 73, 10, 115) : Colors.grey,
+                        decoration: BoxDecoration(
+                            color: position >= 2
+                                ? Color.fromARGB(255, 73, 10, 115)
+                                : Colors.grey,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(50.0))),
-                        child:  Center(
+                        child: Center(
                           child: Text(
                             '3',
                             style: TextStyle(
                               fontSize: 18.0,
-                              color: position >= 2 ? Colors.white: Colors.black,
+                              color:
+                                  position >= 2 ? Colors.white : Colors.black,
                             ),
                           ),
                         ),
                       ),
                       Container(
-                        color:  position >= 3 ? Color.fromARGB(255, 73, 10, 115) : Colors.grey,
+                        color: position >= 3
+                            ? Color.fromARGB(255, 73, 10, 115)
+                            : Colors.grey,
                         height: 5.0,
                         width: 50,
                       )
@@ -167,16 +189,18 @@ class _StepFormPageState extends State<StepFormPage> {
                   Container(
                     width: 30.0,
                     height: 30.0,
-                    decoration:  BoxDecoration(
-                        color:position == 3 ? const Color.fromARGB(255, 73, 10, 115) : Colors.grey,
-                        borderRadius: const BorderRadius.all(Radius.circular(50.0))),
-                    child:  Center(
+                    decoration: BoxDecoration(
+                        color: position == 3
+                            ? const Color.fromARGB(255, 73, 10, 115)
+                            : Colors.grey,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(50.0))),
+                    child: Center(
                       child: Text(
                         '4',
                         style: TextStyle(
-                          fontSize: 18.0,
-                          color: position == 3 ? Colors.white : Colors.black
-                        ),
+                            fontSize: 18.0,
+                            color: position == 3 ? Colors.white : Colors.black),
                       ),
                     ),
                   ),
@@ -196,17 +220,14 @@ class _StepFormPageState extends State<StepFormPage> {
                   setState(() {
                     position = index;
                     onLastPage = (index == 3);
-                  
-                    
                     print(position);
                   });
                 },
-                children: const [
-                  StepOnePage(),
-                  StepTwoPage(),
+                children:  [
+                  StepOnePage(testController: firstname,),
+                  StepTwoPage(testController2: age,),
                   StepTree(),
-                  CongratulationPage(),
-
+                  const CongratulationPage(),
                 ],
               ),
             ),
@@ -216,38 +237,37 @@ class _StepFormPageState extends State<StepFormPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                position >= 1 ?
-                Container(
-                    width: 110.0,
-                    padding: EdgeInsets.all(8.0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                      color: Color.fromARGB(255, 73, 10, 115),
-                    ),
-                    
-                    child: GestureDetector(
-                      onTap: () {
-                        _controller.previousPage(
-                            duration: const Duration(microseconds: 10),
-                            curve: Curves.bounceOut);
-                      },
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.arrow_left_outlined,
-                            color: Colors.white,
+                position >= 1
+                    ? Container(
+                        width: 110.0,
+                        padding: EdgeInsets.all(8.0),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                          color: Color.fromARGB(255, 73, 10, 115),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            _controller.previousPage(
+                                duration: const Duration(microseconds: 10),
+                                curve: Curves.bounceOut);
+                          },
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.arrow_left_outlined,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'Précédent',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'Précédent',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    )) : Container() ,
-
+                        ))
+                    : Container(),
                 Container(
-                    width: 110,
+                    width: 140,
                     padding: EdgeInsets.all(8.0),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5.0)),
@@ -259,12 +279,14 @@ class _StepFormPageState extends State<StepFormPage> {
                               _controller.nextPage(
                                   duration: Duration(microseconds: 10),
                                   curve: Curves.bounceInOut);
+                                  print(firstname.text);
+                                  print(age.text);
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Valider',
+                                  'Tableau de bord',
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 Icon(
@@ -280,7 +302,6 @@ class _StepFormPageState extends State<StepFormPage> {
                               _controller.nextPage(
                                   duration: const Duration(microseconds: 10),
                                   curve: Curves.bounceInOut);
-                                  
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -305,5 +326,3 @@ class _StepFormPageState extends State<StepFormPage> {
     );
   }
 }
-
-

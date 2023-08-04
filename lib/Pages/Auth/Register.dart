@@ -2,6 +2,7 @@ import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Components/Buttons.dart';
 import 'package:finance_me/Pages/Auth/LoginPage.dart';
+import 'package:finance_me/Pages/StepForm/StepFormPage.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -41,6 +42,7 @@ class RegisterPage extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: Container(
               width: MediaQuery.of(context).size.width,
+
               child: Column(children: [
                 createTextFieldWithIcon(
                     'Please enter your full name',
@@ -60,6 +62,7 @@ class RegisterPage extends StatelessWidget {
                     },
                     child: buttons("INSCRIPTION")),
               ]),
+     
             ),
           ),
         ]),

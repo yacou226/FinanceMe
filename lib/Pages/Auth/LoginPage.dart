@@ -70,26 +70,13 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              InkWell(
-                  onTap: () {
-                    if (verificationConnexion(
-                            emailController, passwordController) ==
-                        true) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content:
-                              Text("Erreur dans le mot de passe ou le mail"),
-                          duration: Duration(seconds: 2),
-                        ),
-                      );
-                    }
-                  },
-                  child: buttons("CONNEXION"))
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()));
+                },
+                child: buttons("CONNEXION")
+              )
             ],
           ),
         ));

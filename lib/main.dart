@@ -1,9 +1,12 @@
-import 'package:finance_me/Components/TextWidget.dart';
-import 'package:finance_me/Pages/Auth/LoginPage.dart';
-import 'package:finance_me/Pages/Dashboard.dart';
-import 'package:finance_me/Pages/Home.dart';
+
+
+
 import 'package:finance_me/Pages/OnBordingPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+
+
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:  Dashboard());
+
+        home:  const OnboardingPage());
   }
 }

@@ -37,7 +37,9 @@ class _MyProfileState extends State<MyProfile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               EditableImage(
-                image: _defaultImage,
+                
+                imageBorder: Border.all(color: const  Color.fromARGB(255, 73, 10, 115),width: 2),
+               image: _defaultImage,
                 onChange: (image) {
                   setState(() {
                     _profileImage != null
@@ -51,7 +53,10 @@ class _MyProfileState extends State<MyProfile> {
               Container(
                 padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: const Color.fromARGB(255, 73, 10, 115)),
+                  border: Border.all(color: const Color.fromARGB(255, 73, 10, 115)
+                  ,
+                  width: 2),
+                  
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -83,7 +88,8 @@ class _MyProfileState extends State<MyProfile> {
               Container(
                 padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: const Color.fromARGB(255, 73, 10, 115)),
+                  border: Border.all(color: const Color.fromARGB(255, 73, 10, 115),
+                  width: 2),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),

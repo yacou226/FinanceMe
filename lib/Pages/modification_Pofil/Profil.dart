@@ -39,12 +39,12 @@ class _MyProfileState extends State<MyProfile> {
               EditableImage(
                 
                 imageBorder: Border.all(color: const  Color.fromARGB(255, 73, 10, 115),width: 2),
-               image: _defaultImage,
+               image: _profileImage != null
+                    ? Image.file(_profileImage!, fit: BoxFit.cover)
+                    : _defaultImage,
                 onChange: (image) {
                   setState(() {
-                    _profileImage != null
-                  ? Image.file(_profileImage!, fit: BoxFit.cover)
-                  : _defaultImage;
+                    _profileImage = image;
                   });
                 },
                 

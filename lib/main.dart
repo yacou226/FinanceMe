@@ -1,8 +1,5 @@
 
-import 'package:finance_me/Pages/Dashboard/Hom.dart';
 import 'package:finance_me/Pages/OnBordingPage.dart';
-import 'package:finance_me/Test.dart';
-import 'package:finance_me/Pages/modification_Pofil/Profil.dart';
 import 'package:flutter/material.dart';
 
 void main() {

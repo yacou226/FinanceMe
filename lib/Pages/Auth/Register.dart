@@ -2,6 +2,7 @@ import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
 import 'package:finance_me/Components/Buttons.dart';
 import 'package:finance_me/Pages/Auth/LoginPage.dart';
+import 'package:finance_me/Pages/StepForm/StepFormPage.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {

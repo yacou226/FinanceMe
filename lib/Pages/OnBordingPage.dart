@@ -38,17 +38,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   //Skip POur passer directer au dernier slide
-                  ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.purple)),
+                  TextButton(
+                  
                       onPressed: () {
                         controller.jumpToPage(2);
                       },
                       child: const Text(
-                        "Skip",
+                        "Ignorer",
                         style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                            color: Colors.black, fontWeight: FontWeight.bold),
                       )),
 
                   SmoothPageIndicator(
@@ -62,7 +60,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ElevatedButton(
                           style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.purple)),
+                                  Color.fromARGB(255, 73, 10, 115))),
                           onPressed: () {
                             Navigator.push(
                                 context,
@@ -73,7 +71,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 curve: Curves.easeIn);
                           },
                           child: const Text(
-                            "Done",
+                            "Connection",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -82,19 +80,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       :
 
                       //Button Next pour passer au slide suivant
-                      ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.purple)),
+                      TextButton(
+                         
                           onPressed: () {
                             controller.nextPage(
                                 duration: const Duration(microseconds: 300),
                                 curve: Curves.easeIn);
                           },
                           child: const Text(
-                            "Next",
+                            "Suivant",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           ))
                 ],

@@ -1,5 +1,7 @@
-import 'package:finance_me/Pages/Dashboard.dart';
+
+import 'package:finance_me/Pages/Dashboard/Hom.dart';
 import 'package:finance_me/Pages/OnBordingPage.dart';
+import 'package:finance_me/Test.dart';
 import 'package:finance_me/Pages/modification_Pofil/Profil.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:  Dashboard()
-        );
+        home:  const OnboardingPage());
   }
 }

@@ -13,8 +13,8 @@ Widget buttons(String texte) {
         texte,
         textAlign: TextAlign.center,
         style: const TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold,
+          fontSize: 16.0,
+          fontWeight: FontWeight.w400,
           color: Colors.white,
         ),
       )),

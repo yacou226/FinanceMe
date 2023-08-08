@@ -1,6 +1,5 @@
 import 'package:finance_me/Pages/modification_Pofil/Profil.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override

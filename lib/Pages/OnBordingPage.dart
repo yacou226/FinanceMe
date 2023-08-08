@@ -1,4 +1,5 @@
 import 'package:finance_me/Pages/Auth/LoginPage.dart';
+import 'package:finance_me/Pages/Home.dart';
 import 'package:finance_me/Pages/intro_pages/page_one.dart';
 import 'package:finance_me/Pages/intro_pages/page_tree.dart';
 import 'package:finance_me/Pages/intro_pages/page_two.dart';
@@ -65,7 +66,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
+                                    builder: (context) => const HomePage()));
                             controller.nextPage(
                                 duration: const Duration(microseconds: 300),
                                 curve: Curves.easeIn);

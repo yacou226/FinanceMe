@@ -14,7 +14,7 @@ Widget buttons(String texte) {
         textAlign: TextAlign.center,
         style: const TextStyle(
           fontSize: 16.0,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
       )),

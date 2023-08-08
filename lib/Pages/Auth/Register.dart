@@ -28,7 +28,7 @@ class RegisterPage extends StatelessWidget {
           ),
           imageLogo(),
           const Padding(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: Text(
               'Inscrivez vous en remplissant les formulaires',
               style: TextStyle(fontSize: 18.0),

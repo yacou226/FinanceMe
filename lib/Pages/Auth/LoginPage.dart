@@ -1,5 +1,6 @@
 import 'package:finance_me/Components/ImageLogo.dart';
 import 'package:finance_me/Components/TextField.dart';
+import 'package:finance_me/Components/passwordField.dart';
 import 'package:finance_me/Pages/Dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,8 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(),
         body: SingleChildScrollView(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -47,11 +50,14 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 15.0,
               ),
-              //Input E-mail
               createTextFieldWithIcon("Please enter your e-mail", "E-mail",
                   Icons.email_outlined, emailController),
-              createTextFieldWithIcon("********", "Password",
-                  Icons.key_outlined, passwordController),
+              createPasswordFieldWithIcon(
+                hintText: "********",
+                labelText: "Password",
+                iconData: Icons.key_outlined,
+                controller: passwordController,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -75,24 +81,21 @@ class LoginPage extends StatelessWidget {
                     if (verificationConnexion(
                             emailController, passwordController) ==
                         true) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Dashboard()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Dashboard()));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                     const   SnackBar(
-                          content:
-                              Text("Erreur dans le mot de passe ou le mail"),
-                          duration: Duration(seconds: 3),
-                          showCloseIcon: true
-                        ),
+                        const SnackBar(
+                            content:
+                                Text("Erreur dans le mot de passe ou le mail"),
+                            duration: Duration(seconds: 3),
+                            showCloseIcon: true),
                       );
                     }
                   },
                   child: buttons("CONNEXION"))
             ],
           ),
-        ));
+        )));
   }
 }

@@ -10,12 +10,10 @@ class Test extends StatefulWidget {
 class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(title: Text('flutter Provider '),actions: [Padding(
-        padding: const EdgeInsets.only(right: 10.0),
-        child: Icon(Icons.air_outlined),
-      )],),
+    return const Scaffold(
+      body: Center(
+        child: Text('hello'),
+      ),
     );
   }
 }

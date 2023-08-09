@@ -57,10 +57,45 @@ class RegisterPage extends StatelessWidget {
                 InkWell(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                          MaterialPageRoute(builder: (context) => const StepFormPage()));
                     },
                     child: buttons("INSCRIPTION")),
               ]),
+=========
+              child: Column(
+                children: [
+                  createTextFieldWithIcon(
+                      'Please enter your full name',
+                      'Fullname',
+                      Icons.padding_outlined,
+                      _nameRegisterController),
+                  createTextFieldWithIcon('Please enter your E-mail', 'E-mail',
+                      Icons.email, _emailRegisterController),
+                  createTextFieldWithIcon('Please enter password', ' Password',
+                      Icons.key_rounded, _passwordRegisterController),
+                  createTextFieldWithIcon('Password', 'Confirm password',
+                      Icons.key_rounded, _confirmPasswordRegisterController),
+                  Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: GestureDetector(
+                        onTap: () {
+                          showDialog(context: context, builder: (context) {
+                              return const  Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return  const StepFormPage();
+                          })));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const  StepFormPage()));
+                        },
+                        child: buttons("Incription")),
+                  ),
+                ],
+              ),
+>>>>>>>>> Temporary merge branch 2
             ),
           ),
         ]),

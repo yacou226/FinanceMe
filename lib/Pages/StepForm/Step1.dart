@@ -6,13 +6,21 @@ import 'package:bottom_picker/bottom_picker.dart';
 import 'package:intl/intl.dart';
 
 class StepOnePage extends StatefulWidget {
-  final TextEditingController testController;
+  final TextEditingController firstname;
+  final TextEditingController lastName;
+  final TextEditingController adress;
+  final TextEditingController tel;
+  final Widget dateWidget;
 
-   const StepOnePage({
+
+     StepOnePage({
     super.key,
-    required this.testController,
+     required this.firstname, 
+     required this.lastName, 
+     required this.adress, 
+     required this.tel,
+     required this.dateWidget
 
-    
     });
 
   @override
@@ -21,9 +29,7 @@ class StepOnePage extends StatefulWidget {
 
 class _StepOnePageState extends State<StepOnePage>  with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  TextEditingController lastname = TextEditingController();
-  TextEditingController firstname = TextEditingController();
-  TextEditingController adress = TextEditingController();
+
 
   String? convertedDate;
   bool genre = false;
@@ -52,47 +58,31 @@ class _StepOnePageState extends State<StepOnePage>  with SingleTickerProviderSta
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             createTextFieldWithIcon(
-                'ex:yacou', 'Entrez votre nom', Icons.account_circle, lastname),
+                'ex:yacou', 'Entrez votre nom', Icons.account_circle, widget.lastName),
             createTextFieldWithIcon(
-                'prénom', 'Entrez votre prénom', Icons.account_circle, firstname),
+                'prénom', 'Entrez votre prénom', Icons.account_circle, widget.firstname),
             createTextFieldWithIcon(
-                'Adress', 'Entrez votre adress', Icons.add_location_alt, adress),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: TextField(
-                    controller: lastname,
-                    decoration: const InputDecoration(
-                      hintText: 'Test1',
-                      border:  OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          ),
-                    ),
-                  ),
-                ),
+                'Adress', 'Entrez votre adress', Icons.add_location_alt, widget.adress),
+  
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: TextButton(
-                  onPressed: () {
-                    _openDatePicker(context);
-                  },
-                  child: const Text('Choississez votre date de naissance')),
+              child: widget.dateWidget
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-              child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade400),
-                      borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                  child: Text(getDateTime(),
-                      style: TextStyle(
-                          color:
-                              convertedDate == null ? Colors.red : Colors.black,
-                          fontSize: 16.0))),
-            ),
-                        createTextFieldWithIcon('tel', 'Telephone', Icons.phone, firstname),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+            //   child: Container(
+            //       padding: const EdgeInsets.all(10.0),
+            //       width: MediaQuery.of(context).size.width,
+            //       decoration: BoxDecoration(
+            //           border: Border.all(color: Colors.grey.shade400),
+            //           borderRadius: BorderRadius.all(Radius.circular(8.0))),
+            //       child: Text(getDateTime(),
+            //           style: TextStyle(
+            //               color:
+            //                   convertedDate == null ? Colors.red : Colors.black,
+            //               fontSize: 16.0))),
+            // ),
+                        createTextFieldWithIcon('tel', 'Telephone', Icons.phone, widget.tel),
 
             const Padding(
               padding: EdgeInsets.only(left: 17.0, top: 10.0),
@@ -134,32 +124,5 @@ class _StepOnePageState extends State<StepOnePage>  with SingleTickerProviderSta
     );
   }
 
-  void _openDatePicker(BuildContext context) {
-    BottomPicker.date(
-      buttonSingleColor: Colors.black,
-      layoutOrientation: LayoutOrientation.ltr,
-      height: 400.0,
-      backgroundColor: Colors.white,
-      description: 'Jour |Mois |Année',
-      title: 'Choississez votre date',
-      dateOrder: DatePickerDateOrder.dmy,
-      pickerTextStyle: const TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.bold,
-        fontSize: 16.0,
-      ),
-      titleStyle: const TextStyle(
-        fontWeight: FontWeight.w400,
-        fontSize: 15,
-        color: Colors.blue,
-      ),
-      onChange: (index) {},
-      onSubmit: (index) {
-        setState(() {
-          convertedDate = DateFormat('dd-MM-yyyy').format(index);
-        });
-      },
-      bottomPickerTheme: BottomPickerTheme.plumPlate,
-    ).show(context);
-  }
+
 }

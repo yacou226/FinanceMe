@@ -46,8 +46,12 @@ dependencies:
   iconsax: ^0.0.8
   text_area: ^0.0.3
   cupertino_radio_choice: ^1.0.2
+  open_file: ^3.3.2
   confetti: ^0.7.0
+
   
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

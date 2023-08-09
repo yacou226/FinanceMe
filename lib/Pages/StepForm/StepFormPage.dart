@@ -1,8 +1,12 @@
+import 'package:bottom_picker/bottom_picker.dart';
+import 'package:bottom_picker/resources/arrays.dart';
 import 'package:finance_me/Pages/StepForm/CongratulationPage.dart';
 import 'package:finance_me/Pages/StepForm/Step1.dart';
 import 'package:finance_me/Pages/StepForm/Step2.dart';
 import 'package:finance_me/Pages/StepForm/Step3.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class StepFormPage extends StatefulWidget {
   const StepFormPage({super.key});
@@ -12,12 +16,21 @@ class StepFormPage extends StatefulWidget {
 }
 
 class _StepFormPageState extends State<StepFormPage> {
-  bool onLastPage = false;
+
+  TextEditingController lastname = TextEditingController();
   TextEditingController firstname = TextEditingController();
-  TextEditingController age = TextEditingController();
+  TextEditingController adress = TextEditingController();
+  TextEditingController tel = TextEditingController();
+  TextEditingController compagniName = TextEditingController();
+  TextEditingController description =  TextEditingController();
+  String compagnyType= "";
+  String price = "";
+   String dateValue ='';
+
+
+  bool onLastPage = false;
   int position = 0;
   final PageController _controller = PageController();
-  
   Color currentColor = Colors.black;
 
   @override
@@ -27,6 +40,18 @@ class _StepFormPageState extends State<StepFormPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _showAlertDialog();
     });
+  }
+
+  void getCompagnyType(String value){
+  setState(() {
+    compagnyType = value;
+  });
+  }
+
+  void getprice(String value){
+  setState(() {
+    price = value;
+  });
   }
 
   void _showAlertDialog() {
@@ -100,7 +125,7 @@ class _StepFormPageState extends State<StepFormPage> {
                         height: 30.0,
                         decoration: BoxDecoration(
                             color: position >= 0
-                                ? Color.fromARGB(255, 73, 10, 115)
+                                ? const Color.fromARGB(255, 73, 10, 115)
                                 : Colors.grey,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(50.0))),
@@ -116,7 +141,7 @@ class _StepFormPageState extends State<StepFormPage> {
                       ),
                       Container(
                         color: position >= 1
-                            ? Color.fromARGB(255, 73, 10, 115)
+                            ? const Color.fromARGB(255, 73, 10, 115)
                             : Colors.grey,
                         height: 5.0,
                         width: 50,
@@ -130,7 +155,7 @@ class _StepFormPageState extends State<StepFormPage> {
                         height: 30.0,
                         decoration: BoxDecoration(
                             color: position >= 1
-                                ? Color.fromARGB(255, 73, 10, 115)
+                                ? const Color.fromARGB(255, 73, 10, 115)
                                 : Colors.grey,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(50.0))),
@@ -140,7 +165,7 @@ class _StepFormPageState extends State<StepFormPage> {
                             style: TextStyle(
                               fontSize: 18.0,
                               color: position >= 1
-                                  ? Color.fromARGB(255, 248, 248, 248)
+                                  ? const Color.fromARGB(255, 248, 248, 248)
                                   : Colors.black,
                             ),
                           ),
@@ -148,7 +173,7 @@ class _StepFormPageState extends State<StepFormPage> {
                       ),
                       Container(
                         color: position >= 2
-                            ? Color.fromARGB(255, 73, 10, 115)
+                            ? const Color.fromARGB(255, 73, 10, 115)
                             : Colors.grey,
                         height: 5.0,
                         width: 50,
@@ -162,10 +187,10 @@ class _StepFormPageState extends State<StepFormPage> {
                         height: 30.0,
                         decoration: BoxDecoration(
                             color: position >= 2
-                                ? Color.fromARGB(255, 73, 10, 115)
+                                ? const Color.fromARGB(255, 73, 10, 115)
                                 : Colors.grey,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(50.0))),
+                                const BorderRadius.all(Radius.circular(50.0))),
                         child: Center(
                           child: Text(
                             '3',
@@ -179,7 +204,7 @@ class _StepFormPageState extends State<StepFormPage> {
                       ),
                       Container(
                         color: position >= 3
-                            ? Color.fromARGB(255, 73, 10, 115)
+                            ? const Color.fromARGB(255, 73, 10, 115)
                             : Colors.grey,
                         height: 5.0,
                         width: 50,
@@ -224,9 +249,20 @@ class _StepFormPageState extends State<StepFormPage> {
                   });
                 },
                 children:  [
-                  StepOnePage(testController: firstname,),
-                  StepTwoPage(testController2: age,),
-                  StepTree(),
+                  // StepOnePage(testController: firstname,),
+                  StepOnePage(firstname: firstname, lastName: lastname, adress: adress, tel: tel, 
+                   dateWidget: Column(
+                     children: [
+                       TextButton(
+                        onPressed:(){
+                         _openDatePicker(context);
+                       },
+                       child:  Text('Definir sa date de naissance'),),
+                        Text("votre date de naissance est: $dateValue"),
+                     ],
+                   ) ,),
+                   StepTwoPage(compagnyName: compagniName, companyDescription: description, getCompagnyType: getCompagnyType, getPrice: getprice,),
+                  const StepTree(),
                   const CongratulationPage(),
                 ],
               ),
@@ -240,7 +276,7 @@ class _StepFormPageState extends State<StepFormPage> {
                 position >= 1
                     ? Container(
                         width: 110.0,
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                           color: Color.fromARGB(255, 73, 10, 115),
@@ -268,7 +304,7 @@ class _StepFormPageState extends State<StepFormPage> {
                     : Container(),
                 Container(
                     width: 140,
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5.0)),
                       color: Color.fromARGB(255, 73, 10, 115),
@@ -276,11 +312,17 @@ class _StepFormPageState extends State<StepFormPage> {
                     child: onLastPage
                         ? GestureDetector(
                             onTap: () {
-                              _controller.nextPage(
-                                  duration: Duration(microseconds: 10),
-                                  curve: Curves.bounceInOut);
+
                                   print(firstname.text);
-                                  print(age.text);
+                                  print(lastname.text);
+                                  print(tel.text);
+                                  print(adress.text);
+                                   print(dateValue);
+                                   print(compagniName.text);
+                                   print(description.text);
+                                   print(compagnyType);
+                                   print(price);
+
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -320,9 +362,39 @@ class _StepFormPageState extends State<StepFormPage> {
                           )),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
   }
+
+  void _openDatePicker(BuildContext context) {
+    BottomPicker.date(
+      buttonSingleColor: Colors.black,
+      layoutOrientation: LayoutOrientation.ltr,
+      height: 400.0,
+      backgroundColor: Colors.white,
+      description: 'Jour |Mois |Année',
+      title: 'Choississez votre date',
+      dateOrder: DatePickerDateOrder.dmy,
+      pickerTextStyle: const TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 16.0,
+      ),
+      titleStyle: const TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
+        color: Colors.blue,
+      ),
+      onChange: (index) {},
+      onSubmit: (index) {
+        setState(() {
+          dateValue = DateFormat('dd-MM-yyyy').format(index);
+        });
+      },
+      bottomPickerTheme: BottomPickerTheme.plumPlate,
+    ).show(context);
+  }
+
 }

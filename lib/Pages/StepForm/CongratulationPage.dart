@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:confetti/confetti.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class CongratulationPage extends StatefulWidget {
@@ -12,6 +13,24 @@ class CongratulationPage extends StatefulWidget {
 
 class _CongratulationPageState extends State<CongratulationPage> {
    late ConfettiController _controller;
+
+   String _filePath = 'No file chosen';
+
+
+
+
+
+  Future<void> pickFiles() async {
+  FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+  if (result != null) {
+    PlatformFile file = result.files.first;
+    print('File picked: ${file.name}');
+  } else {
+    // User canceled the file picking
+  }
+}
+
 
 
 
@@ -48,6 +67,10 @@ class _CongratulationPageState extends State<CongratulationPage> {
            const Text('Felicitation!',style: TextStyle(color: Colors.green,fontSize: 18.0),),
            Image.asset('assets/validation.jpg',width: 200),
            const Text("Vous venez de creer votre demande de financement"),
+           TextButton(onPressed: (){
+              pickFiles();
+           }, child: const Text('_filePath')),
+           
             
             ConfettiWidget(
               confettiController: _controller,

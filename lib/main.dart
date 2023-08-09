@@ -2,6 +2,8 @@
 
 
 import 'package:finance_me/Pages/OnBordingPage.dart';
+import 'package:finance_me/Pages/StepForm/Test.dart';
+import 'package:finance_me/Test.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +28,6 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
 
-        home:  const OnboardingPage());
+        home:     const OnboardingPage());
   }
 }

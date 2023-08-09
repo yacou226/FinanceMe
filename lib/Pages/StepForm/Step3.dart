@@ -15,14 +15,15 @@ class StepTree extends StatefulWidget {
 class _StepTreeState extends State<StepTree> {
   String _image =
       'https://ouch-cdn2.icons8.com/84zU-uvFboh65geJMR5XIHCaNkx-BZ2TahEpE9TpVJM/rs:fit:784:784/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvODU5/L2E1MDk1MmUyLTg1/ZTMtNGU3OC1hYzlh/LWU2NDVmMWRiMjY0/OS5wbmc.png';
-  late AnimationController loadingController;
+   AnimationController? loadingController;
 
   File? _file;
   PlatformFile? _platformFile;
 
   selectFile() async {
     final file = await FilePicker.platform.pickFiles(
-        type: FileType.custom, allowedExtensions: ['png', 'jpg', 'jpeg']);
+      allowMultiple: true,
+        type: FileType.custom, allowedExtensions: ['png', 'jpg', 'jpeg','doc']);
 
     if (file != null) {
       setState(() {
@@ -31,7 +32,7 @@ class _StepTreeState extends State<StepTree> {
       });
     }
 
-    loadingController.forward();
+    loadingController?.forward();
   }
 
   @override
@@ -63,63 +64,22 @@ class _StepTreeState extends State<StepTree> {
             ),
             GestureDetector(
               onTap: () async {
-                final result = await FilePicker.platform.pickFiles();
-                if (result == null) return;
+                // final result = await FilePicker.platform.pickFiles();
+                // if (result == null) return;
+                selectFile();
               },
               child: Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                      const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
                   child: DottedBorder(
                     borderType: BorderType.RRect,
-                    radius: Radius.circular(10),
+                    radius: const Radius.circular(10),
                     dashPattern: [10, 4],
                     strokeCap: StrokeCap.round,
                     color: Colors.blue.shade400,
                     child: Container(
                       width: double.infinity,
                       height: 120,
-                      decoration: BoxDecoration(
-                          color: Colors.blue.shade50.withOpacity(.3),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Iconsax.folder_open,
-                            color: Colors.blue,
-                            size: 40,
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Selectionner votre carte d'identité nationnal en recto/verso",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 15, color: Colors.grey.shade400),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )),
-            ),
-            GestureDetector(
-              onTap: selectFile,
-              child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                  child: DottedBorder(
-                    borderType: BorderType.RRect,
-                    radius: Radius.circular(10),
-                    dashPattern: [10, 4],
-                    strokeCap: StrokeCap.round,
-                    color: Colors.blue.shade400,
-                    child: Container(
-                      width: double.infinity,
-                      height: 110,
                       decoration: BoxDecoration(
                           color: Colors.blue.shade50.withOpacity(.3),
                           borderRadius: BorderRadius.circular(10)),
@@ -137,7 +97,7 @@ class _StepTreeState extends State<StepTree> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Documents Banquaires",
+                              "Selectionner votre carte d'identité nationnal en recto/verso",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 15, color: Colors.grey.shade400),
@@ -148,48 +108,92 @@ class _StepTreeState extends State<StepTree> {
                     ),
                   )),
             ),
-            GestureDetector(
-              onTap: selectFile,
-              child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 40.0, vertical: 20.0),
-                  child: DottedBorder(
-                    borderType: BorderType.RRect,
-                    radius: Radius.circular(10),
-                    dashPattern: [10, 4],
-                    strokeCap: StrokeCap.round,
-                    color: Colors.blue.shade400,
-                    child: Container(
-                      width: double.infinity,
-                      height: 110,
-                      decoration: BoxDecoration(
-                          color: Colors.blue.shade50.withOpacity(.3),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Iconsax.folder_open,
-                            color: Colors.blue,
-                            size: 40,
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "SDocument de votre entreprise",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 15, color: Colors.grey.shade400),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )),
-            ),
+            
+            // GestureDetector(
+            //   onTap: selectFile,
+            //   child: Padding(
+            //       padding:
+            //           EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+            //       child: DottedBorder(
+            //         borderType: BorderType.RRect,
+            //         radius: Radius.circular(10),
+            //         dashPattern: [10, 4],
+            //         strokeCap: StrokeCap.round,
+            //         color: Colors.blue.shade400,
+            //         child: Container(
+            //           width: double.infinity,
+            //           height: 110,
+            //           decoration: BoxDecoration(
+            //               color: Colors.blue.shade50.withOpacity(.3),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               const Icon(
+            //                 Iconsax.folder_open,
+            //                 color: Colors.blue,
+            //                 size: 40,
+            //               ),
+            //               const SizedBox(
+            //                 height: 15,
+            //               ),
+            //               Padding(
+            //                 padding: const EdgeInsets.all(8.0),
+            //                 child: Text(
+            //                   "Documents Banquaires",
+            //                   textAlign: TextAlign.center,
+            //                   style: TextStyle(
+            //                       fontSize: 15, color: Colors.grey.shade400),
+            //                 ),
+            //               ),
+
+            //             ],
+            //           ),
+            //         ),
+            //       )),
+            // ),
+            // GestureDetector(
+            //   onTap: selectFile,
+            //   child: Padding(
+            //       padding: const EdgeInsets.symmetric(
+            //           horizontal: 40.0, vertical: 20.0),
+            //       child: DottedBorder(
+            //         borderType: BorderType.RRect,
+            //         radius: Radius.circular(10),
+            //         dashPattern: [10, 4],
+            //         strokeCap: StrokeCap.round,
+            //         color: Colors.blue.shade400,
+            //         child: Container(
+            //           width: double.infinity,
+            //           height: 110,
+            //           decoration: BoxDecoration(
+            //               color: Colors.blue.shade50.withOpacity(.3),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               const Icon(
+            //                 Iconsax.folder_open,
+            //                 color: Colors.blue,
+            //                 size: 40,
+            //               ),
+            //               const SizedBox(
+            //                 height: 15,
+            //               ),
+            //               Padding(
+            //                 padding: const EdgeInsets.all(8.0),
+            //                 child: Text(
+            //                   "SDocument de votre entreprise",
+            //                   textAlign: TextAlign.center,
+            //                   style: TextStyle(
+            //                       fontSize: 15, color: Colors.grey.shade400),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       )),
+            // ),
             _platformFile != null
                 ? Container(
                     padding: EdgeInsets.all(20),
@@ -203,11 +207,11 @@ class _StepTreeState extends State<StepTree> {
                             fontSize: 15,
                           ),
                         ),
-                        SizedBox(
+                       const  SizedBox(
                           height: 10,
                         ),
                         Container(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white,
@@ -249,7 +253,7 @@ class _StepTreeState extends State<StepTree> {
                                             fontSize: 13,
                                             color: Colors.grey.shade500),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Container(
@@ -261,17 +265,17 @@ class _StepTreeState extends State<StepTree> {
                                             color: Colors.blue.shade50,
                                           ),
                                           child: LinearProgressIndicator(
-                                            value: loadingController.value,
+                                            value: loadingController?.value,
                                           )),
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                               ],
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         // MaterialButton(

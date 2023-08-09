@@ -4,7 +4,7 @@ import 'package:finance_me/Pages/intro_pages/page_tree.dart';
 import 'package:finance_me/Pages/intro_pages/page_two.dart';
 import 'package:flutter/material.dart';
 
-import '../models/Onboarding_info.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingPage extends StatefulWidget {

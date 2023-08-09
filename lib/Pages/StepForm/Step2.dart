@@ -4,17 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:text_area/text_area.dart';
 
 class StepTwoPage extends StatefulWidget {
-    TextEditingController testController2;
-      StepTwoPage({super.key, required this.testController2});
+  final TextEditingController compagnyName;
+  final  TextEditingController  companyDescription;
+  final Function getCompagnyType;
+  final Function getPrice;
+      const StepTwoPage({super.key, required this.compagnyName, required this.companyDescription, required this.getCompagnyType, required this.getPrice});
 
   @override
   State<StepTwoPage> createState() => _StepTwoPageState();
 }
 
 class _StepTwoPageState extends State<StepTwoPage> {
-  final compagnyName = TextEditingController();
-  final compagnyType = TextEditingController();
-  final compagnyNumber = TextEditingController();
+
+
 
   static final Map<String, String> genderMap = {
     'eurl': 'unipersonnelle à responsabilité limitée',
@@ -62,7 +64,7 @@ class _StepTwoPageState extends State<StepTwoPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            createTextFieldWithIcon('enhtreprise', 'Entrez le nom de votre entreprise', Icons.shop_2_outlined, compagnyName),
+            createTextFieldWithIcon('enhtreprise', 'Entrez le nom de votre entreprise', Icons.shop_2_outlined, widget.compagnyName),
             const Padding(
               padding: EdgeInsets.only(left:17.0),
               child: Text("Quel est le type de votre entreprise ?",textAlign: TextAlign.left,style: TextStyle(fontSize: 16.0),),
@@ -73,7 +75,7 @@ class _StepTwoPageState extends State<StepTwoPage> {
                 selectedColor: Color.fromARGB(208, 65, 5, 137),
                 notSelectedColor: Colors.grey.shade500,
                   choices: genderMap,
-                  onChange: onGenderSelected,
+                  onChange: widget.getCompagnyType,
                   initialKeyValue: _selectedGender),
              ),
               const Padding(
@@ -86,7 +88,7 @@ class _StepTwoPageState extends State<StepTwoPage> {
                 selectedColor: Color.fromARGB(208, 65, 5, 137),
                 notSelectedColor: Colors.grey.shade500,
                   choices: priceMap,
-                  onChange: onPriceSelected,
+                  onChange: widget.getPrice,
                   initialKeyValue: _selectedPrice),
              ),
               const Padding(
@@ -94,26 +96,16 @@ class _StepTwoPageState extends State<StepTwoPage> {
               child: Text("Objectif du financement",textAlign: TextAlign.left,style: TextStyle(fontSize: 16.0),),
             ),
 
-            TextField(
-                    controller: compagnyName,
-                    decoration: const InputDecoration(
-                      hintText: 'Test1',
-                      border:  OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          ),
-                    ),
-                  ),
              Padding(
                padding: const EdgeInsets.all(15.0),
                child: TextArea(
                       borderRadius: 10,
                       borderColor: const Color(0xFFCFD6FF),
-                      textEditingController: compagnyType,
+                      textEditingController: widget.companyDescription,
                       suffixIcon: Icons.attach_file_rounded,
                       onSuffixIconPressed: () => {},
-                      
                       errorText: 'Please type a reason!',
+                    
                        validation: reasonValidation,
                     ),
              ),

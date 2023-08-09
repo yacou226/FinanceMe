@@ -58,7 +58,7 @@ class RegisterPage extends StatelessWidget {
                 InkWell(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                          MaterialPageRoute(builder: (context) => const StepFormPage()));
                     },
                     child: buttons("INSCRIPTION")),
               ]),

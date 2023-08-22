@@ -105,7 +105,6 @@ class _StepTwoPageState extends State<StepTwoPage> {
                       suffixIcon: Icons.attach_file_rounded,
                       onSuffixIconPressed: () => {},
                       errorText: 'Please type a reason!',
-                    
                        validation: reasonValidation,
                     ),
              ),

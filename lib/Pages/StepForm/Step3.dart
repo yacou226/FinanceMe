@@ -32,7 +32,7 @@ class _StepTreeState extends State<StepTree> {
       });
     }
 
-    loadingController?.forward();
+    loadingController?.forward().timeout(const Duration(milliseconds: 10));
   }
 
   @override
